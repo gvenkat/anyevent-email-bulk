@@ -124,6 +124,8 @@ sub on_read_handler {
       # we are in connected state and we got an OK
       elsif( $self->ok( $line ) && $self->is_connected ) { 
 
+        $self->run_with( 'greeted' );
+
         # we need to starttls now
         if( $config->starttls ) {
           $self->run_with( 'starttls' )

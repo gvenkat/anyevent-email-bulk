@@ -108,6 +108,9 @@ sub AUTOLOAD {
 
 # state machine stuff
 sub write :OnState( 'connected' ) {
+}
+
+sub write :OnState( 'greeted' ) {
   my $self = shift;
   $self->_write( "EHLO " . $self->configuration->host );
 }
